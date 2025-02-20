@@ -1,8 +1,11 @@
 import React, { ReactNode } from "react";
+import Link from "next/link";
+import { Url } from "url";
+import Image from "next/image";
 
 interface ProjectCardProps {
-  imgUrl?: string;
-  href?: string;
+  imgUrl: string;
+  href: string;
   header: ReactNode;
   children?: ReactNode | ReactNode[];
 }
@@ -15,11 +18,14 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div className="card mb-3" style={{ width: "500px" }}>
-      <img src={imgUrl} className="card-img-top" alt="..." />
+      <Image src={imgUrl} className="card-img-top" alt="..." />
       <div className="card-body">
-        <a href={href} className="link-body-emphasis text-decoration-underline">
+        <Link
+          href={href}
+          className="link-body-emphasis text-decoration-underline"
+        >
           <p className="card-title h5">{header}</p>
-        </a>
+        </Link>
         <p className="card-text">{children}</p>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectCard from "@/components/project-card";
+import Link from "next/link";
 
 export default function ProjectsPage() {
   return (
@@ -8,13 +9,13 @@ export default function ProjectsPage() {
         <p className="h1">Projects</p>
         <p>
           All can be viewed on my{" "}
-          <a
+          <Link
             href="https://github.com/a1-Raza"
             className="link-primary"
             target="_blank"
           >
             GitHub
-          </a>{" "}
+          </Link>{" "}
           profile!
         </p>
       </div>

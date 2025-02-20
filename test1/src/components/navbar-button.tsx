@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 interface NavbarButtonProps {
   children: string;
@@ -7,8 +8,8 @@ interface NavbarButtonProps {
 
 export default function NavbarButton({ children, href }: NavbarButtonProps) {
   return (
-    <a className="nav-link" href={href}>
+    <Link className="nav-link" href={href}>
       {children}
-    </a>
+    </Link>
   );
 }

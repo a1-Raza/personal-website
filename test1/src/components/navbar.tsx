@@ -1,4 +1,6 @@
 import { ReactNode } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 interface NavbarProps {
   imgUrl?: string;
@@ -10,9 +12,9 @@ export default function Navbar({ imgUrl, children }: NavbarProps) {
     if (!imgUrl) return <></>;
     return (
       <div className="flex shrink-0 items-center">
-        <a href="/">
-          <img className="h-6 pr-6 w-auto" src={imgUrl} alt="Logo" />
-        </a>
+        <Link href="/">
+          <Image className="h-6 pr-6 w-auto" src={imgUrl} alt="Logo" />
+        </Link>
       </div>
     );
   };

@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import Image from "next/image";
 
 interface PhotcardProps {
   header: ReactNode;
@@ -10,7 +11,7 @@ export default function Photocard({ header, children }: PhotcardProps) {
     <div className="mb-3 p-5" style={{ width: "1000px" }}>
       <div className="row g-0">
         <div className="col-md-4">
-          <img
+          <Image
             src="/osaker.png"
             className="img-fluid rounded-start"
             alt="..."
