@@ -16,8 +16,8 @@ export default function Navbar({ imgUrl, children }: NavbarProps) {
           <Image
             className="h-6 pr-6 w-auto"
             src={imgUrl}
-            width={1000}
-            height={1000}
+            width={250}
+            height={250}
             alt="Logo"
           />
         </Link>

@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface NavbarProps {
   imgUrl?: string;
@@ -13,7 +14,13 @@ export default function Navbar({ imgUrl, children }: NavbarProps) {
     return (
       <div className="flex shrink-0 items-center">
         <Link href="/">
-          <img className="h-8 w-auto" src={imgUrl} alt="Logo" />
+          <Image
+            className="h-8 w-auto"
+            src={imgUrl}
+            width={250}
+            height={250}
+            alt="Logo"
+          />
         </Link>
       </div>
     );
