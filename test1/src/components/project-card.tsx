@@ -17,8 +17,14 @@ export default function ProjectCard({
   children,
 }: ProjectCardProps) {
   return (
-    <div className="card mb-3" style={{ width: "500px" }}>
-      <Image src={imgUrl} className="card-img-top" alt="..." />
+    <div className="card m-3" style={{ width: "500px" }}>
+      <Image
+        src={imgUrl}
+        className="card-img-top w-auto h-auto"
+        width={500}
+        height={1000}
+        alt="..."
+      />
       <div className="card-body">
         <Link
           href={href}

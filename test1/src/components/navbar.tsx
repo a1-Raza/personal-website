@@ -13,7 +13,13 @@ export default function Navbar({ imgUrl, children }: NavbarProps) {
     return (
       <div className="flex shrink-0 items-center">
         <Link href="/">
-          <Image className="h-6 pr-6 w-auto" src={imgUrl} alt="Logo" />
+          <Image
+            className="h-6 pr-6 w-auto"
+            src={imgUrl}
+            width={1000}
+            height={1000}
+            alt="Logo"
+          />
         </Link>
       </div>
     );

@@ -20,7 +20,10 @@ export default function ProjectsPage() {
         </p>
       </div>
 
-      <div className="d-flex justify-content-center pt-5 ">
+      <div
+        className="d-flex flex-wrap justify-content-center mt-5 m-auto"
+        style={{ maxWidth: "1250px" }}
+      >
         <ProjectCard
           imgUrl="/vr-setup.png"
           header="Project 1"

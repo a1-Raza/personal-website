@@ -13,7 +13,9 @@ export default function Photocard({ header, children }: PhotcardProps) {
         <div className="col-md-4">
           <Image
             src="/osaker.png"
-            className="img-fluid rounded-start"
+            className="img-fluid rounded-start w-auto h-auto"
+            width={1000}
+            height={1000}
             alt="..."
           />
         </div>
