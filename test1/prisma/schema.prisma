@@ -14,4 +14,5 @@ model ProjectCard {
   id String @id @default(uuid()) // creates a unique id for each project
   name String
   description String
+  imgUrl String
 }

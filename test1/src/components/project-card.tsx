@@ -4,6 +4,7 @@ import { Url } from "url";
 import Image from "next/image";
 
 interface ProjectCardProps {
+  id: string;
   imgUrl: string;
   href: string;
   header: ReactNode;
@@ -11,6 +12,7 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({
+  id,
   imgUrl,
   href,
   header,
