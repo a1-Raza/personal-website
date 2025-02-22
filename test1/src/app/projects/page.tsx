@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import React from "react";
 import ProjectCard from "@/components/project-card";
 import Link from "next/link";
