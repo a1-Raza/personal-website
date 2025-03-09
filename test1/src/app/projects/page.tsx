@@ -10,6 +10,7 @@ export default async function ProjectsPage() {
   const renderedProjectCards = projectCards.map((projectCard) => {
     return (
       <ProjectCard
+        key={projectCard.id}
         id={projectCard.id}
         imgUrl={projectCard.imgUrl}
         header={projectCard.name}
