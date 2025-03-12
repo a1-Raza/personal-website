@@ -24,7 +24,7 @@ export default function ProjectCard({
         src={imgUrl}
         className="card-img-top w-auto h-auto"
         width={500}
-        height={1000}
+        height={200}
         alt="..."
       />
       <div className="card-body">

@@ -55,6 +55,26 @@ export default async function ProjectsPage() {
         style={{ maxWidth: "1250px" }}
       >
         {renderedProjectCards}
+
+        {/*<ProjectCard
+          key="000"
+          id="000"
+          imgUrl="/vr-setup.png"
+          header="name"
+          href={`/projects/000`}
+        >
+          description
+        </ProjectCard>
+        <ProjectCard
+          key="001"
+          id="001"
+          imgUrl="/placeholder.svg"
+          header="name"
+          href={`/projects/001`}
+        >
+          description
+        </ProjectCard>
+        */}
       </div>
     </>
   );
