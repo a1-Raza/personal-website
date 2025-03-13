@@ -6,15 +6,17 @@ import { notFound } from "next/navigation";
 import ProjectPageComponent from "@/components/project-page/project-page";
 
 interface Props {
-  params: {
-    projectid: string;
-  };
+  params: Params;
+}
+
+interface Params {
+  projectid: string;
 }
 
 export default async function page({ params }: Props) {
-  const id = params.projectid;
+  const { projectid } = params;
   const projectDetails = await db.projectCard.findFirst({
-    where: { id },
+    where: { id: projectid },
   });
 
   const renderedDetails = () => {
