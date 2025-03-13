@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default async function page({ params }: Props) {
-  const id = await params.projectid;
+  const id = params.projectid;
   const projectDetails = await db.projectCard.findFirst({
     where: { id },
   });
