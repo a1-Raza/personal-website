@@ -4,6 +4,7 @@ import Link from "next/link";
 import * as actions from "@/actions";
 import { db } from "@/db";
 import { notFound } from "next/navigation";
+import { unstable_noStore } from "next/cache";
 
 export default async function ProjectsPage() {
   return (
@@ -48,10 +49,10 @@ export default async function ProjectsPage() {
 }
 
 async function LoadedProjects() {
+  unstable_noStore();
+
   const projectCards = await db.projectCard.findMany();
-
   if (!projectCards) return notFound();
-
   if (!projectCards.length)
     return Placeholder(
       "No Projects Available",
