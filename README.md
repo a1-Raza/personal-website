@@ -1,6 +1,6 @@
 # personal-website (To become CS-Portfolio-Builder)
 
-Welcome to my repository! This project is going to be a portfolio building web app for users, tailored for Comp Sci students, to share themselves and their work.
+Welcome to my repository! While this project started as a personal portfolio, it is now going to be a portfolio building web app for other users, with the goal of tailoring to Comp Sci students, to share themselves and their work.
 
 Built with TypeScript Next.js and React.
 
