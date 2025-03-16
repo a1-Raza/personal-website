@@ -5,7 +5,7 @@ import Image from "next/image";
 
 interface ProjectCardProps {
   id: string;
-  imgUrl: string;
+  imgUrl?: string;
   href: string;
   header: ReactNode;
   children?: ReactNode | ReactNode[];
@@ -18,15 +18,26 @@ export default function ProjectCard({
   header,
   children,
 }: ProjectCardProps) {
+  const image = () => {
+    if (!imgUrl) {
+      return <></>;
+    }
+    return (
+      <>
+        <Image
+          src={imgUrl}
+          className="card-img-top w-auto h-auto"
+          width={500}
+          height={200}
+          alt="..."
+        />
+      </>
+    );
+  };
+
   return (
     <div className="card m-3" style={{ width: "500px" }}>
-      <Image
-        src={imgUrl}
-        className="card-img-top w-auto h-auto"
-        width={500}
-        height={200}
-        alt="..."
-      />
+      {image()}
       <div className="card-body">
         <Link
           href={href}

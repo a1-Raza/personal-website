@@ -1,23 +1,26 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import { db } from "@/db";
 
-export async function createProjectForm(formData: FormData) {
-    const name = formData.get("name") as string;
-    const description = formData.get("description") as string;
-    const imgUrl = formData.get("imgUrl") as string;
+export async function redirectTo() {
+  redirect("/projects/create");
+}
 
-    const projectCard = await db.projectCard.create({
-        data: {
-          name,
-          description,
-          imgUrl,
-        },
-      });
-      console.log(projectCard);
-  
-      redirect("/projects");
+export async function createProjectForm(formData: FormData) {
+    let name = formData.get("name") as string;
+    if (!name) name = "Untitled";
+
+    let description = formData.get("description") as string;
+    if (!description) description = "...";
+
+    let imgUrl = formData.get("imgUrl") as string;
+    if (!imgUrl) imgUrl = "/placeholder.svg";
+
+    createProject(name, description, imgUrl)
+
+    redirect("/projects");
 }
 
 export async function createProjectTemplate() {
@@ -30,7 +33,7 @@ export async function createProjectTemplate() {
       });
       console.log(projectCard);
   
-      redirect("/projects");
+      revalidatePath("/projects");
 }
 
 export async function createProject(name: string, description: string, imgUrl: string) {
@@ -42,8 +45,6 @@ export async function createProject(name: string, description: string, imgUrl: s
       },
     });
     console.log(projectCard);
-
-    redirect("/projects");
 }
 
 export async function editProject(id: string, name: string, description: string, imgUrl: string) {
@@ -51,8 +52,6 @@ export async function editProject(id: string, name: string, description: string,
         where: { id },
         data: { name, description, imgUrl }
     });
-
-    redirect("/projects");
 }
 
 export async function deleteProject(id: string) {
@@ -60,11 +59,11 @@ export async function deleteProject(id: string) {
         where: {id}
     });
 
-    redirect("/projects");
+    revalidatePath("/projects");
 }
 
 export async function deleteAllProjects() {
     await db.projectCard.deleteMany();
 
-    redirect("/projects");
+    revalidatePath("/projects");
 }

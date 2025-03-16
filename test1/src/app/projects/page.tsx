@@ -4,7 +4,6 @@ import Link from "next/link";
 import * as actions from "@/actions";
 import { db } from "@/db";
 import { notFound } from "next/navigation";
-import { unstable_noStore } from "next/cache";
 
 export default async function ProjectsPage() {
   return (
@@ -23,21 +22,36 @@ export default async function ProjectsPage() {
           profile!
         </p>
 
-        {
-          <div>
-            for debug:
-            <form action={actions.createProjectTemplate}>
-              <button type="submit">create projects</button>
-            </form>
-            <form action={actions.deleteAllProjects}>
-              <button type="submit">delete projects</button>
-            </form>
-          </div>
-        }
+        <div className="pt-3 d-flex justify-content-center">
+          <form action={actions.redirectTo}>
+            <button
+              className="p-1 bg-sky-500 rounded text-white font-medium m-2"
+              type="submit"
+            >
+              Create New
+            </button>
+          </form>
+          <form action={actions.createProjectTemplate}>
+            <button
+              className="p-1 bg-sky-500 rounded text-white font-medium m-2"
+              type="submit"
+            >
+              Create Template
+            </button>
+          </form>
+          <form action={actions.deleteAllProjects}>
+            <button
+              className="p-1 bg-sky-500 rounded text-white font-medium m-2"
+              type="submit"
+            >
+              Delete All
+            </button>
+          </form>
+        </div>
       </div>
 
       <div
-        className="d-flex flex-wrap justify-content-center mt-5 m-auto"
+        className="d-flex flex-wrap justify-content-center mt-4 m-auto"
         style={{ maxWidth: "1250px" }}
       >
         <Suspense fallback={Placeholder("Loading...", "Loading...")}>
@@ -49,8 +63,6 @@ export default async function ProjectsPage() {
 }
 
 async function LoadedProjects() {
-  unstable_noStore();
-
   const projectCards = await db.projectCard.findMany();
   if (!projectCards) return notFound();
   if (!projectCards.length)
@@ -68,7 +80,7 @@ async function LoadedProjects() {
         header={projectCard.name}
         href={`/projects/${projectCard.id}`}
       >
-        {projectCard.description} {projectCard.id}
+        {projectCard.description}
       </ProjectCard>
     );
   });
@@ -78,39 +90,8 @@ async function LoadedProjects() {
 
 function Placeholder(header: string, desc: string) {
   return (
-    <ProjectCard
-      key=""
-      id=""
-      imgUrl="/placeholder.svg"
-      header={header}
-      href={`/projects/`}
-    >
+    <ProjectCard key="" id="" header={header} href={`/projects/`}>
       {desc}
     </ProjectCard>
-  );
-}
-
-function ExampleProjects() {
-  return (
-    <>
-      <ProjectCard
-        key="000"
-        id="000"
-        imgUrl="/vr-setup.png"
-        header="name"
-        href={`/projects/000`}
-      >
-        description
-      </ProjectCard>
-      <ProjectCard
-        key="001"
-        id="001"
-        imgUrl="/placeholder.svg"
-        header="name"
-        href={`/projects/001`}
-      >
-        description
-      </ProjectCard>
-    </>
   );
 }
