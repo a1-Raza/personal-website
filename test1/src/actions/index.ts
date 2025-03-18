@@ -54,7 +54,8 @@ export async function editProject(id: string, name: string, description: string,
     });
 }
 
-export async function deleteProject(id: string) {
+export async function deleteProject(formData: FormData) {
+  const id = formData.get("id") as string;
     await db.projectCard.delete({
         where: {id}
     });

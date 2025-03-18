@@ -90,7 +90,13 @@ async function LoadedProjects() {
 
 function Placeholder(header: string, desc: string) {
   return (
-    <ProjectCard key="" id="" header={header} href={`/projects/`}>
+    <ProjectCard
+      key=""
+      id=""
+      header={header}
+      href={`/projects/`}
+      isPlaceholder={true}
+    >
       {desc}
     </ProjectCard>
   );
