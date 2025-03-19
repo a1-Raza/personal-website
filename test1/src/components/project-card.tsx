@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ProjectOptionsButton from "./project-options-button";
@@ -37,10 +37,16 @@ export default function ProjectCard({
     );
   };
 
-  const projectButton = () => {
+  async function projectButton() {
     if (isPlaceholder) return <></>;
-    return <ProjectOptionsButton projectid={id} />;
-  };
+    return (
+      <>
+        <Suspense fallback={<></>}>
+          <ProjectOptionsButton projectid={id} />
+        </Suspense>
+      </>
+    );
+  }
 
   return (
     <div className="card m-3" style={{ width: "500px" }}>
