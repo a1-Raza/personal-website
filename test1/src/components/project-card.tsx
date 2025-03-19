@@ -26,13 +26,15 @@ export default function ProjectCard({
     }
     return (
       <>
-        <Image
-          src={imgUrl}
-          className="card-img-top w-auto h-auto"
-          width={500}
-          height={200}
-          alt="..."
-        />
+        <Link href={href}>
+          <Image
+            src={imgUrl}
+            className="card-img-top w-auto h-auto"
+            width={500}
+            height={200}
+            alt="..."
+          />
+        </Link>
       </>
     );
   };

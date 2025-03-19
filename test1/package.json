@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
     "@prisma/client": "^6.4.1",
     "@prisma/extension-accelerate": "^1.2.2",
     "bootstrap": "^5.3.3",
