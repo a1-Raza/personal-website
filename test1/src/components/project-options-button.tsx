@@ -1,6 +1,7 @@
 import React from "react";
 import { deleteProject } from "@/actions";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import Link from "next/link";
 
 interface Props {
   projectid: string;
@@ -34,9 +35,14 @@ export default function ProjectOptionsButton({ projectid }: Props) {
       >
         <div className="py-1">
           <MenuItem>
-            <p className="block px-2 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden">
-              Edit
-            </p>
+            <button>
+              <Link
+                href={`/projects/${projectid}/edit`}
+                className="block px-2 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
+              >
+                Edit
+              </Link>
+            </button>
           </MenuItem>
           <MenuItem>
             <form action={deleteProject}>

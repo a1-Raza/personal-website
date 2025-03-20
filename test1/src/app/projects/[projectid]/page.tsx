@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import ProjectPageComponent from "@/components/project-page/project-page";
 
 interface Props {
-  params: Promise<{ projectid: string }>;
+  params: Promise<{ projectid: string }>; // getting from [projectid]
 }
 
 export default async function page({ params }: Props) {
